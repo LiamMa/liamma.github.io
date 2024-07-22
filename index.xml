@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>https://lihengma.github.io/</link>
+    <link>https://liamma.github.io/</link>
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 23 Jun 2024 14:38:33 +0200</lastBuildDate>
-    <atom:link href="https://lihengma.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://liamma.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://lihengma.github.io/blog/sample/</link>
+      <link>https://liamma.github.io/blog/sample/</link>
       <pubDate>Sun, 23 Jun 2024 14:38:33 +0200</pubDate>
-      <guid>https://lihengma.github.io/blog/sample/</guid>
+      <guid>https://liamma.github.io/blog/sample/</guid>
       <description>f</description>
     </item>
   </channel>
