@@ -1,12 +1,724 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://liheng-ma.notion.site/lihengma">
-  <link rel="canonical" href="https://liheng-ma.notion.site/lihengma">
-  <title>Redirecting...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liheng Ma — PhD Candidate, McGill &amp; Mila</title>
+  <meta name="description" content="Liheng Ma — PhD candidate at McGill University and Mila. World-action models, RL post-training for LLMs, and geometric deep learning." />
+  <link rel="canonical" href="https://liamma.github.io/" />
+  <meta property="og:title" content="Liheng Ma" />
+  <meta property="og:description" content="PhD candidate at McGill University and Mila. World-action models, RL post-training for LLMs, and geometric deep learning." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://liamma.github.io/" />
+  <meta property="og:image" content="https://liamma.github.io/images/liheng/profile.png" />
+  <link rel="icon" href="images/liheng/profile.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #eef2f4;
+      --ink: #172026;
+      --ink-muted: #4d5a63;
+      --ink-faint: #7a8790;
+      --accent: #0f5c5a;
+      --accent-light: #d9eceb;
+      --rule: #d3dce1;
+      --serif: "EB Garamond", Georgia, serif;
+      --mono: "DM Mono", "Courier New", monospace;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--paper);
+      background-image:
+        radial-gradient(ellipse 90% 55% at 0% 0%, rgba(15, 92, 90, 0.07), transparent 55%),
+        radial-gradient(ellipse 70% 45% at 100% 10%, rgba(40, 70, 90, 0.05), transparent 50%);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .rise {
+      animation: rise 0.7s ease both;
+    }
+
+    .rise-delay-1 { animation-delay: 0.08s; }
+    .rise-delay-2 { animation-delay: 0.16s; }
+    .rise-delay-3 { animation-delay: 0.24s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .rise { animation: none; }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      background: rgba(238, 242, 244, 0.88);
+    }
+
+    .nav {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      color: var(--ink-muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 72px 40px 60px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .hero-text h1 {
+      font-size: 44px;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      letter-spacing: -0.015em;
+    }
+
+    .hero-text .role {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: 0.09em;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-text .bio {
+      font-size: 17px;
+      color: var(--ink-muted);
+      max-width: 520px;
+      margin-bottom: 12px;
+    }
+
+    .hero-text .bio a {
+      color: var(--ink-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .hero-text .bio a:hover { color: var(--accent); }
+
+    .hero-text .bio strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta-note {
+      font-size: 15px;
+      color: var(--ink-faint);
+      margin: 20px 0 28px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+      transition: opacity 0.15s;
+    }
+
+    .hero-links a:hover { opacity: 0.65; }
+
+    .hero-photo {
+      width: 180px;
+      height: 224px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      margin-top: 4px;
+      flex-shrink: 0;
+      background: #dfe6ea;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 56px 40px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 32px;
+    }
+
+    .stale-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fdf6e3;
+      border: 1px solid #e8d9a0;
+      border-radius: 3px;
+      padding: 7px 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: #7a6520;
+      letter-spacing: 0.04em;
+      margin-bottom: 36px;
+      line-height: 1.5;
+    }
+
+    .stale-note a {
+      color: #7a6520;
+      text-decoration: underline;
+    }
+
+    .pub-list { display: flex; flex-direction: column; }
+
+    .pub-item {
+      display: block;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .pub-item:first-child { border-top: 1px solid var(--rule); }
+
+    .pub-venue {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pub-badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 2px;
+      padding: 1px 7px;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .pub-title {
+      font-size: 16.5px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .pub-title a {
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .pub-title a:hover { border-color: var(--ink); }
+
+    .pub-authors {
+      font-size: 13.5px;
+      color: var(--ink-faint);
+      line-height: 1.5;
+    }
+
+    .pub-authors strong {
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    .pub-note {
+      font-size: 13.5px;
+      color: var(--ink-faint);
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .service-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-item {
+      display: grid;
+      grid-template-columns: minmax(120px, 160px) 1fr;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+    }
+
+    .service-item:first-child { border-top: 1px solid var(--rule); }
+
+    .service-role {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .service-detail {
+      font-size: 15.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+    }
+
+    .service-years {
+      color: var(--ink-faint);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer span {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 680px) {
+      .nav-inner { padding: 12px 20px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 10px; letter-spacing: 0.05em; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 36px 20px 40px;
+        gap: 24px;
+      }
+
+      .hero-photo {
+        width: 120px;
+        height: 150px;
+      }
+
+      .hero-text h1 { font-size: 32px; }
+      .hero-text .role { font-size: 10.5px; margin-bottom: 18px; }
+      .hero-text .bio { font-size: 16px; }
+      .hero-links { gap: 14px; }
+      .hero-links a { font-size: 10px; }
+
+      .section { padding: 40px 20px; }
+      .section-label { margin-bottom: 24px; }
+      .stale-note { font-size: 10px; padding: 6px 10px; }
+      .pub-item { padding: 18px 0; }
+      .pub-title { font-size: 15.5px; }
+      .pub-authors { font-size: 12.5px; }
+      .service-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 12px 0;
+      }
+
+      .footer-inner {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .nav-links { gap: 10px; }
+      .hero-text h1 { font-size: 28px; }
+    }
+  </style>
 </head>
 <body>
-  <p>If you are not redirected automatically, <a href="https://liheng-ma.notion.site/lihengma">click here</a>.</p>
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a class="nav-name" href="#about">L. Ma</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#pubs">Publications</a></li>
+          <li><a href="#service">Service</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="about" aria-label="About">
+    <div class="hero-photo rise">
+      <img
+        src="images/liheng/profile.png"
+        alt="Liheng Ma"
+        width="180"
+        height="224"
+      />
+    </div>
+    <div class="hero-text rise rise-delay-1">
+      <h1>Liheng Ma</h1>
+      <p class="role">PhD Candidate &middot; McGill University &amp; Mila</p>
+      <p class="bio">
+        I am a PhD candidate in Electrical &amp; Computer Engineering at
+        <a href="https://www.mcgill.ca/" target="_blank" rel="noopener">McGill University</a>
+        and <a href="https://mila.quebec/" target="_blank" rel="noopener">Mila</a>,
+        advised by
+        <a href="https://www.ece.mcgill.ca/~mcoates1/" target="_blank" rel="noopener">Prof.&nbsp;Mark Coates</a>.
+        I received my M.Sc. in Computer Science from the same institutions, supervised by
+        Prof.&nbsp;Reihaneh Rabbany and Dr.&nbsp;Adriana Romero&#8209;Soriano,
+        and was a visiting student with the
+        <a href="https://www.robots.ox.ac.uk/~tvg/" target="_blank" rel="noopener">Torr Vision Group</a>
+        at the University of Oxford, working with Prof.&nbsp;Philip Torr.
+      </p>
+      <p class="bio">
+        My doctoral research focuses on expressive neural network architectures for learning
+        real-world signals with geometric symmetries and temporal dynamics&mdash;mainly graphs
+        (permutation symmetry group) and time-series (temporal dynamics). I develop neural
+        networks with strong perception capacity, expressivity, and efficiency.
+      </p>
+      <p class="bio">
+        More recently, I have explored RL post-training for LLM reasoning and efficient
+        world-action models. My current research focuses on developing low-latency
+       world action models. My work has been published at ICML, AISTATS, AAAI, AAMAS, KDD, etc., and
+        has accumulated over 1,000 citations.
+      </p>
+      <p class="meta-note">liheng.ma at mail.mcgill.ca</p>
+      <div class="hero-links">
+        <a href="https://scholar.google.com/citations?user=abfvaXwAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://mila.quebec/en/directory/liheng-ma" target="_blank" rel="noopener">Mila</a>
+        <a href="https://github.com/LiamMa" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:liheng.ma@mail.mcgill.ca">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section rise rise-delay-2" id="pubs">
+    <p class="section-label">Selected Publications</p>
+    <p class="pub-note">* indicates equal contribution.</p>
+
+    <div class="pub-list">
+      <div class="pub-item">
+        <p class="pub-venue">arXiv 2026</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2608.02365" target="_blank" rel="noopener">
+            Faster-WAM: Do World Action Models Need Deep Action Modules?
+          </a>
+        </p>
+        <p class="pub-authors">
+          <strong>L. Ma*</strong>, R. H. Yang*, Z. Zhang*, M. Clemente, Z. Hu, T. Cao, Y. Zhang
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">arXiv 2026</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2606.17250" target="_blank" rel="noopener">
+            Rethinking Groups in Critic-Free RLVR
+          </a>
+        </p>
+        <p class="pub-authors">
+          Y. Wu*, <strong>L. Ma*</strong>, L. Xiao, M. Li, X. Wang, Y. Zhang, J.-Y. Nie
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">AAMAS 2026</p>
+        <p class="pub-title">
+          Advancing Multi-Agent RAG system with Minimalist Reinforcement Learning
+        </p>
+        <p class="pub-authors">
+          Y. Wu*, <strong>L. Ma*</strong>, M. Li*, J. Zhou, J. Hao, H. Leung, I. King,
+          Y. Zhang, J.-Y. Nie
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">TMLR 2026</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2504.12588" target="_blank" rel="noopener">
+            Plain Transformers Can Be Powerful Graph Learners
+          </a>
+        </p>
+        <p class="pub-authors">
+          <strong>L. Ma</strong>, S. Pal, Y. Zhang, P. H. S. Torr, M. Coates
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">arXiv 2025</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2510.00977" target="_blank" rel="noopener">
+            It Takes Two: Your GRPO Is Secretly DPO
+          </a>
+        </p>
+        <p class="pub-authors">
+          Y. Wu*, <strong>L. Ma*</strong>, L. Ding, M. Li, X. Wang, K. Chen, Z. Su, Z. Zhang,
+          C. Huang, Y. Zhang, M. Coates, J.-Y. Nie
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">ICML 2025</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2506.14113" target="_blank" rel="noopener">
+            SKOLR: Structured Koopman Operator Linear RNN for Time-Series Forecasting
+          </a>
+        </p>
+        <p class="pub-authors">
+          Y. Zhang, <strong>L. Ma</strong>, A. Valkanas, B. N. Oreshkin, M. Coates
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">ICML 2024</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2404.13604" target="_blank" rel="noopener">
+            CKGConv: General Graph Convolution with Continuous Kernels
+          </a>
+        </p>
+        <p class="pub-authors">
+          <strong>L. Ma</strong>, S. Pal, Y. Zhang, J. Zhou, Y. Zhang, M. Coates
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">AISTATS 2024</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2311.04147" target="_blank" rel="noopener">
+            Multi-Resolution Time-Series Transformer for Long-term Forecasting
+          </a>
+        </p>
+        <p class="pub-authors">
+          Y. Zhang*, <strong>L. Ma*</strong>, S. Pal, Y. Zhang, M. Coates
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">ICML 2023</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2305.17589" target="_blank" rel="noopener">
+            Graph Inductive Biases in Transformers without Message Passing
+          </a>
+        </p>
+        <p class="pub-authors">
+          <strong>L. Ma*</strong>, C. Lin*, D. Lim, A. Romero-Soriano, P. K. Dokania,
+          M. Coates, P. H. S. Torr, S.-N. Lim
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">ICML 2021</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2106.06064" target="_blank" rel="noopener">
+            RNN with Particle Flow for Probabilistic Spatio-temporal Forecasting
+          </a>
+        </p>
+        <p class="pub-authors">
+          S. Pal, <strong>L. Ma</strong>, Y. Zhang, M. Coates
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">PAKDD 2021</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2105.04037" target="_blank" rel="noopener">
+            Graph Attention Networks with Positional Embeddings
+          </a>
+        </p>
+        <p class="pub-authors">
+          <strong>L. Ma</strong>, R. Rabbany, A. Romero-Soriano
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">AAAI 2021</p>
+        <p class="pub-title">
+          Knowledge-Enhanced Top-K Recommendation in Poincar&eacute; Ball
+        </p>
+        <p class="pub-authors">
+          C. Ma, <strong>L. Ma</strong>, Y. Zhang, H. Wu, X. Liu, M. Coates
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">KDD 2020</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2101.04849" target="_blank" rel="noopener">
+            Probabilistic Metric Learning with Adaptive Margin for Top-K Recommendation
+          </a>
+        </p>
+        <p class="pub-authors">
+          C. Ma, <strong>L. Ma</strong>, Y. Zhang, R. Tang, X. Liu, M. Coates
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-venue">AAAI 2020</p>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/1912.11730" target="_blank" rel="noopener">
+            Memory Augmented Graph Neural Networks for Sequential Recommendation
+          </a>
+        </p>
+        <p class="pub-authors">
+          C. Ma, <strong>L. Ma</strong>, Y. Zhang, J. Sun, X. Liu, M. Coates
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section rise rise-delay-3" id="service">
+    <p class="section-label">Academic Service</p>
+    <div class="service-list">
+      <div class="service-item">
+        <p class="service-role">Reviewer</p>
+        <p class="service-detail">
+          ICML <span class="service-years">2023&ndash;2026</span>
+        </p>
+      </div>
+      <div class="service-item">
+        <p class="service-role">Reviewer</p>
+        <p class="service-detail">
+          NeurIPS <span class="service-years">2023&ndash;2026</span>
+        </p>
+      </div>
+      <div class="service-item">
+        <p class="service-role">Reviewer</p>
+        <p class="service-detail">
+          ICLR <span class="service-years">2024&ndash;2026</span>
+        </p>
+      </div>
+      <div class="service-item">
+        <p class="service-role">Reviewer</p>
+        <p class="service-detail">
+          LoG <span class="service-years">2023&ndash;2025</span>
+        </p>
+      </div>
+      <div class="service-item">
+        <p class="service-role">Program Committee</p>
+        <p class="service-detail">
+          AAAI <span class="service-years">2025</span>
+        </p>
+      </div>
+      <div class="service-item">
+        <p class="service-role">Co-organizer</p>
+        <p class="service-detail">
+          Learning on Graphs Conference Montreal Local Meetup (LOG-MTL)
+          <span class="service-years">2024</span>
+        </p>
+      </div>
+      <div class="service-item">
+        <p class="service-role">Reviewer</p>
+        <p class="service-detail">
+          Neural Networks <span class="service-years">since 2025</span>
+        </p>
+      </div>
+      <div class="service-item">
+        <p class="service-role">Reviewer</p>
+        <p class="service-detail">
+          IEEE TPAMI <span class="service-years">since 2025</span>
+        </p>
+      </div>
+      <div class="service-item">
+        <p class="service-role">Reviewer</p>
+        <p class="service-detail">
+          ACL ARR <span class="service-years">since 2026</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Liheng Ma</span>
+      <span>Montreal, QC &mdash; McGill &amp; Mila</span>
+    </div>
+  </footer>
 </body>
 </html>
