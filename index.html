@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Liheng Ma — PhD Candidate, McGill &amp; Mila</title>
-  <meta name="description" content="Liheng Ma — PhD candidate at McGill University and Mila. World-action models, RL post-training for LLMs, and geometric deep learning." />
+  <title>Liheng Ma — PhD, McGill &amp; Mila</title>
+  <meta name="description" content="Liheng Ma — Ph.D. from McGill University and Mila. World-action models, RL post-training for LLMs, and geometric deep learning." />
   <link rel="canonical" href="https://liamma.github.io/" />
   <meta property="og:title" content="Liheng Ma" />
-  <meta property="og:description" content="PhD candidate at McGill University and Mila. World-action models, RL post-training for LLMs, and geometric deep learning." />
+  <meta property="og:description" content="Ph.D. from McGill University and Mila. World-action models, RL post-training for LLMs, and geometric deep learning." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://liamma.github.io/" />
   <meta property="og:image" content="https://liamma.github.io/images/liheng/profile.png" />
   <link rel="icon" href="images/liheng/profile.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -152,13 +152,46 @@
       color: var(--ink-muted);
       text-decoration: underline;
       text-underline-offset: 3px;
+      text-decoration-thickness: 0.6px;
+      text-decoration-color: rgba(77, 90, 99, 0.35);
     }
 
-    .hero-text .bio a:hover { color: var(--accent); }
+    .hero-text .bio a:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+    }
 
     .hero-text .bio strong {
       color: var(--ink);
       font-weight: 500;
+    }
+
+    .hero-text .name {
+      font-style: normal;
+      font-weight: 400;
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-thickness: 0.7px;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(77, 90, 99, 0.4);
+    }
+
+    .hero-text .role .name {
+      text-decoration-color: rgba(77, 90, 99, 0.35);
+    }
+
+    .hero-text a:has(.name) {
+      text-decoration: none;
+    }
+
+    .hero-text a:has(.name) .name {
+      color: inherit;
+      text-decoration-color: rgba(77, 90, 99, 0.4);
+    }
+
+    .hero-text a:has(.name):hover .name {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
     }
 
     .meta-note {
@@ -453,21 +486,24 @@
     </div>
     <div class="hero-text rise rise-delay-1">
       <h1>Liheng Ma</h1>
-      <p class="role">PhD Candidate &middot; McGill University &amp; Mila</p>
+      <p class="role">Ph.D. &middot; <span class="name">McGill University</span> &amp; <span class="name">Mila</span></p>
       <p class="bio">
-        I am a PhD candidate in Electrical &amp; Computer Engineering at
-        <a href="https://www.mcgill.ca/" target="_blank" rel="noopener">McGill University</a>
-        and <a href="https://mila.quebec/" target="_blank" rel="noopener">Mila</a>,
+        I received my Ph.D. in Electrical &amp; Computer Engineering from
+        <a href="https://www.mcgill.ca/" target="_blank" rel="noopener"><span class="name">McGill University</span></a>
+        and <a href="https://mila.quebec/" target="_blank" rel="noopener"><span class="name">Mila</span></a>,
         advised by
-        <a href="https://www.ece.mcgill.ca/~mcoates1/" target="_blank" rel="noopener">Prof.&nbsp;Mark Coates</a>.
-        I received my M.Sc. in Computer Science from the same institutions, supervised by
-        Prof.&nbsp;Reihaneh Rabbany and Dr.&nbsp;Adriana Romero&#8209;Soriano,
-        and was a visiting student with the
-        <a href="https://www.robots.ox.ac.uk/~tvg/" target="_blank" rel="noopener">Torr Vision Group</a>
-        at the University of Oxford, working with Prof.&nbsp;Philip Torr.
+        Prof.&nbsp;<span class="name">Mark Coates</span>.
+        During my Ph.D., I was a visiting student with the
+        <a href="https://www.robots.ox.ac.uk/~tvg/" target="_blank" rel="noopener"><span class="name">Torr Vision Group</span></a>
+        at the <span class="name">University of Oxford</span>, working with
+        Prof.&nbsp;<span class="name">Philip Torr</span>.
+        I previously received my M.Sc. in Computer Science from the same institutions, supervised by
+        Prof.&nbsp;<span class="name">Reihaneh Rabbany</span> and
+        Dr.&nbsp;<span class="name">Adriana Romero&#8209;Soriano</span>,
+        and my B.Sc. in Statistics from <span class="name">Sun Yat-sen University</span>.
       </p>
       <p class="bio">
-        My doctoral research focuses on expressive neural network architectures for learning
+        My doctoral research focused on expressive neural network architectures for learning
         real-world signals with geometric symmetries and temporal dynamics&mdash;mainly graphs
         (permutation symmetry group) and time-series (temporal dynamics). I develop neural
         networks with strong perception capacity, expressivity, and efficiency.
@@ -727,7 +763,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <span>Liheng Ma</span>
-      <span>Montreal, QC &mdash; McGill &amp; Mila</span>
+      <span>Montreal, QC</span>
     </div>
   </footer>
 </body>
